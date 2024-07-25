@@ -1,0 +1,27 @@
+---
+const date = new Date();
+const formatter = new Intl.DateTimeFormat("id-ID", {
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+});
+const formattedTime = formatter.format(date);
+---
+<div class="items-center justify-center text-2xl flex-auto flex flex-col">
+    <span id="clock-time" class="pt-5 text-4xl text-sky-200"
+      >{formattedTime}</span
+    >
+    <span id="clock-date" class="pt-3 text-2xl text-sky-200"
+      >{date.toDateString()}</span
+    >
+  </div>
+
+  <script is:inline>
+    setInterval(() => {
+      const current = new Date();
+      document.getElementById("clock-time").innerHTML =
+        current.toLocaleTimeString();
+      document.getElementById("clock-date").innerHTML =
+        current.toLocaleDateString();
+    }, 1000);
+  </script>
