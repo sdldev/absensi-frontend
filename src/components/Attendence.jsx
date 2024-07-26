@@ -1,9 +1,7 @@
 import React, { useState, useRef } from 'react';
 import '../styles/app.css';
 
-// const url = "https://absensi.mtsn1lampungselatan.sch.id/api/attendance";
-const url = "http://127.0.0.1:8000/api/attendance";
-
+const url = import.meta.env.PUBLIC_API_URL;
 
 const Form = () => {
   const [responseData, setResponseData] = useState(null); // Untuk menyimpan respons  
