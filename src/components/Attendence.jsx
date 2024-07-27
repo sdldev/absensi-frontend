@@ -58,7 +58,7 @@ const Form = () => {
             type="text"
             id="code"
             name="code"
-            className="sm:text-xs text-primary-950 bg-primary-950 border-hidden focus:ring-primary-950 focus:border-primary-950"
+            className="sm:text-xs bg-primary-950 border-transparent focus:border-transparent focus:ring-0"
             autoFocus={true}
             ref={codeInputRef} // Menyambungkan ref dengan input  
           />
