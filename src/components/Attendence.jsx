@@ -88,7 +88,7 @@ const Form = () => {
                 Kelas: {responseData.data.kelas}
               </div>
               <p
-                className="mb-8 block text-sky-200  text-base font-normal leading-relaxed antialiased"
+                className="mb-8 block text-sky-400  text-base font-normal leading-relaxed antialiased"
               >
                 Masuk: {responseData.data.timein}
               </p>
@@ -98,7 +98,7 @@ const Form = () => {
                 Keluar: {responseData.data.timeout}
               </p>
               <div
-                className="items-center justify-center text-2xl flex-auto flex flex-col"
+                className="items-center justify-center text-2xl flex-auto text-red-400 flex flex-col"
               >
                 {responseData.message.text}
               </div>
