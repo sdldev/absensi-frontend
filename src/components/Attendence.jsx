@@ -51,6 +51,19 @@ const Form = () => {
     <div>
 
       {error && <div style={{ color: 'red' }}>{error}</div>} {/* Tampilkan kesalahan jika ada */}
+      
+      <div className="items-center justify-center text-2xl flex-auto flex flex-col">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            id="code"
+            name="code"
+            className="sm:text-xs text-gray-700 bg-primary-950"
+            autoFocus={true}
+            ref={codeInputRef} // Menyambungkan ref dengan input  
+          />
+        </form>
+      </div>
       {responseData && responseData.success && (
 
         <div className="py-3 flex items-center justify-center flex-auto flex-col">
@@ -98,18 +111,7 @@ const Form = () => {
         </div>
       )}
 
-      <div className="py-4 items-center justify-center text-2xl flex-auto flex flex-col">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            id="code"
-            name="code"
-            className="sm:text-sm text-gray-700 shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_#08f]"
-            autoFocus={true}
-            ref={codeInputRef} // Menyambungkan ref dengan input  
-          />
-        </form>
-      </div>
+
     </div>
   );
 };
