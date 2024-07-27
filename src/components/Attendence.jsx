@@ -55,7 +55,7 @@ const Form = () => {
 
         <div className="py-3 flex items-center justify-center flex-auto flex-col">
           <div
-            className="relative flex w-full max-w-[48rem] flex-row rounded-xl  text-gray-700 shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_#08f]"
+            className="relative flex w-full max-w-[48rem] flex-row rounded-xl text-gray-700 shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_#08f]"
           >
             <div
               className="relative m-0 w-2/6 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700"
@@ -98,12 +98,13 @@ const Form = () => {
         </div>
       )}
 
-      <div className="py-8 items-center justify-center text-2xl flex-auto flex flex-col">
+      <div className="py-4 items-center justify-center text-2xl flex-auto flex flex-col">
         <form onSubmit={handleSubmit}>
           <input
             type="text"
             id="code"
             name="code"
+            className="sm:text-sm text-gray-700 shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_#08f]"
             autoFocus={true}
             ref={codeInputRef} // Menyambungkan ref dengan input  
           />
