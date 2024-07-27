@@ -55,46 +55,40 @@ const Form = () => {
 
         <div className="py-3 flex items-center justify-center flex-auto flex-col">
           <div
-            className="items-center justify-center text-2xl flex-auto flex flex-col"
-          >
-            {responseData.message.text}
-          </div>
-
-          <div
             className="relative flex w-full max-w-[48rem] flex-row rounded-xl  text-gray-700 shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_#08f]"
           >
             <div
               className="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700"
             >
               <img
-                src="/images/4.webp"
+                src={responseData.data.image}
                 alt="image"
                 className="h-full w-full object-cover"
               />
             </div>
             <div className="p-6">
               <h6
-                className="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-sky-200 antialiased"
+                className="mb-4 block text-base font-semibold uppercase leading-relaxed tracking-normal text-sky-200 antialiased"
               >
                 {responseData.data.code}
               </h6>
               <div
-                className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
+                className="mb-2 block text-sky-200 text-2xl font-semibold leading-snug tracking-normal antialiased"
               >
                 {responseData.data.name}
               </div>
               <div
-                className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
+                className="mb-2  text-sky-200  font-semibold leading-snug tracking-normal antialiased"
               >
                 nisn: {responseData.data.nisn}
               </div>
               <div
-                className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
+                className="mb-2 block text-sky-200   font-semibold leading-snug tracking-normal antialiased"
               >
                 Kelas: {responseData.data.kelas}
               </div>
               <p
-                className="mb-8 block font-sans text-base font-normal leading-relaxed text-sky-400 antialiased"
+                className="mb-8 block text-sky-200  text-base font-normal leading-relaxed antialiased"
               >
                 Masuk: {responseData.data.timein}
               </p>
@@ -103,6 +97,11 @@ const Form = () => {
               >
                 Keluar: {responseData.data.timeout}
               </p>
+              <div
+                className="items-center justify-center text-2xl flex-auto flex flex-col"
+              >
+                {responseData.message.text}
+              </div>
             </div>
           </div>
 
