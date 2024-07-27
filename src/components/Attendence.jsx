@@ -52,13 +52,13 @@ const Form = () => {
 
       {error && <div style={{ color: 'red' }}>{error}</div>} {/* Tampilkan kesalahan jika ada */}
       
-      <div className="items-center justify-center flex-auto flex flex-col">
+      <div className="items-center justify-center flex-auto flex">
         <form onSubmit={handleSubmit}>
           <input
             type="text"
             id="code"
             name="code"
-            className="sm:text-xs text-gray-700 bg-primary-950 ring-primary-950 focus:ring-primary-950 focus:border-primary-950"
+            className="sm:text-xs text-primary-950 bg-primary-950 border-hidden focus:ring-primary-950 focus:border-primary-950"
             autoFocus={true}
             ref={codeInputRef} // Menyambungkan ref dengan input  
           />
