@@ -7,11 +7,11 @@ const formatter = new Intl.DateTimeFormat("id-ID", {
 });
 const formattedTime = formatter.format(date);
 ---
-<div class="items-center justify-center text-2xl flex-auto flex flex-col">
-    <span id="clock-time" class="pt-5 text-4xl text-sky-200"
+<div class="items-center justify-center flex-auto flex flex-col">
+    <span id="clock-time" class="pt-4 text-4xl text-lime-200"
       >{formattedTime}</span
     >
-    <span id="clock-date" class="pt-3 text-2xl text-sky-200"
+    <span id="clock-date" class="py-5 text-2xl text-lime-200"
       >{date.toDateString()}</span
     >
   </div>

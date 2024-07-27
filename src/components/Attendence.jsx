@@ -58,7 +58,7 @@ const Form = () => {
             className="relative flex w-full max-w-[48rem] flex-row rounded-xl  text-gray-700 shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_#08f]"
           >
             <div
-              className="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700"
+              className="relative m-0 w-2/6 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700"
             >
               <img
                 src={responseData.data.image}
@@ -70,35 +70,25 @@ const Form = () => {
               <h6
                 className="mb-4 block text-base font-semibold uppercase leading-relaxed tracking-normal text-sky-200 antialiased"
               >
-                {responseData.data.code}
+                {responseData.data.code} / {responseData.data.nisn} / {responseData.data.kelas}
               </h6>
               <div
-                className="mb-2 block text-sky-200 text-2xl font-semibold leading-snug tracking-normal antialiased"
+                className="mb-2 block text-lime-200 text-3xl font-semibold antialiased"
               >
                 {responseData.data.name}
               </div>
-              <div
-                className="mb-2  text-sky-200  font-semibold leading-snug tracking-normal antialiased"
-              >
-                nisn: {responseData.data.nisn}
-              </div>
-              <div
-                className="mb-2 block text-sky-200   font-semibold leading-snug tracking-normal antialiased"
-              >
-                Kelas: {responseData.data.kelas}
-              </div>
               <p
-                className="mb-8 block text-sky-400  text-base font-normal leading-relaxed antialiased"
+                className="py-3 block text-sky-400 antialiased"
               >
                 Masuk: {responseData.data.timein}
               </p>
               <p
-                className="mb-8 block font-sans text-base font-normal leading-relaxed text-sky-400 antialiased"
+                className="mb-8 block text-sky-400 antialiased"
               >
                 Keluar: {responseData.data.timeout}
               </p>
               <div
-                className="items-center justify-center text-2xl flex-auto text-red-400 flex flex-col"
+                className="items-center justify-center text-2xl flex-auto text-red-200 flex flex-col"
               >
                 {responseData.message.text}
               </div>
