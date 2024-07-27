@@ -52,7 +52,7 @@ const Form = () => {
 
       {error && <div style={{ color: 'red' }}>{error}</div>} {/* Tampilkan kesalahan jika ada */}
       
-      <div className="items-center justify-center flex-auto flex">
+      <div className="px-3 items-center justify-center flex-auto flex">
         <form onSubmit={handleSubmit}>
           <input
             type="text"
