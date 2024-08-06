@@ -83,7 +83,7 @@ const Form = () => {
               <h6
                 className="mb-4 block text-base font-semibold uppercase leading-relaxed tracking-normal text-sky-200 antialiased"
               >
-                {responseData.data.code} / {responseData.data.nisn} / {responseData.data.kelas}
+                {responseData.data.code} {responseData.data.nisn}  {responseData.data.kelas}
               </h6>
               <div
                 className="mb-2 block text-lime-200 text-3xl font-semibold antialiased"
@@ -110,11 +110,8 @@ const Form = () => {
 
         </div>
       )}
-
-
     </div>
   );
 };
-
 export default Form;
 
