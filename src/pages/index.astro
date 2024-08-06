@@ -6,6 +6,17 @@ import Clock from "@/components/Clock.astro";
 <html>
   <head>
     <title>Absensi</title>
+    <script>  
+      function refreshAtSpecificTimes() {  
+        const refreshTimes = ['08:00', '09:00', '10:00', '14:30', '15:15', '00:00'];  
+        const now = new Date();  
+        const nowTime = now.toTimeString().slice(0, 5);
+        if (refreshTimes.includes(nowTime)) {  
+          window.location.reload();  
+        }  
+      }  
+      setInterval(refreshAtSpecificTimes, 60000);  
+    </script>
   </head>
   <body class="bg-primary-950">
     <div class="mx-6">
