@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import '../styles/app.css';
 
 const url = import.meta.env.PUBLIC_API_URL;
-const logourl = import.meta.env.PUBLIC_LOGO_URL;
 import Slider from "@/components/Sweeper";
 
 const Form = () => {
