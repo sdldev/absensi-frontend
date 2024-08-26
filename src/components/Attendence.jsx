@@ -1,14 +1,14 @@
 import React, { useState, useRef } from 'react';
 import '../styles/app.css';
 
-const url = import.meta.env.PUBLIC_API_URL;
-import Slider from "@/components/Sweeper";
+const url = import.meta.env.PUBLIC_API_URL + "/api/attendance";
+import Sweeper from "@/components/Sweeper";
+import Clock from "@/components/Clock";
 
 const Form = () => {
-  const [responseData, setResponseData] = useState(null); // Untuk menyimpan respons  
-  const [error, setError] = useState(null); // Untuk menyimpan pesan kesalahan  
-  const codeInputRef = useRef(); // Menggunakan useRef untuk merujuk ke input  
-
+  const [responseData, setResponseData] = useState(null);
+  const [error, setError] = useState(null);
+  const codeInputRef = useRef();
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -16,8 +16,7 @@ const Form = () => {
       code: formData.get('code'),
     };
 
-    console.log('Mengirim data:', data); // Tambahkan logging untuk melihat data yang dikirim  
-
+    console.log('Mengirim data:', data);
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -32,25 +31,24 @@ const Form = () => {
       if (response.ok) {
         const responseJson = await response.json();
         console.log('Data berhasil dikirim:', responseJson);
-        setResponseData(responseJson); // Simpan data ke state  
-        setError(null); // Reset kesalahan  
+        setResponseData(responseJson);
+        setError(null);
 
-        // Kosongkan input setelah pengiriman  
         codeInputRef.current.value = '';
         const timer = setTimeout(() => {
-          window.location.href = '/'; // Ganti dengan URL halaman utama Anda  
-        }, 3000); // Delay 5 detik  
+          window.location.href = '/';
+        }, 2300);
 
         return () => clearTimeout(timer);
 
       } else {
         const errorText = await response.text();
         console.error('Terjadi kesalahan:', response.statusText, errorText);
-        setError(`Terjadi kesalahan: ${response.statusText}`); // Set pesan kesalahan  
+        setError(`Terjadi kesalahan: ${response.statusText}`);
       }
     } catch (error) {
       console.error('Error saat mengirim data:', error);
-      setError('Kesalahan jaringan, periksa koneksi Anda.'); // Set pesan kesalahan jaringan  
+      setError('Kesalahan jaringan, periksa koneksi Anda.');
     }
   };
 
@@ -89,18 +87,21 @@ const Form = () => {
           </div>
         </div>
       ) : (
-        <div className="flex justify-center items-center h-full">
-          <Slider client:load />
+        <div className="justify-center items-center h-full">
+          <Clock client:load />
+          <div className="mt-16"></div>
+          <Sweeper client:load />
+
         </div>
       )}
 
-      <div className="px-3 items-center justify-center flex-auto flex">
+      <div className="py-3 items-center justify-center flex-auto flex bg-transparent">
         <form onSubmit={handleSubmit}>
           <input
             type="text"
             id="code"
             name="code"
-            className="sm:text-xs border-transparent focus:border-transparent focus:ring-0"
+            className="sm:text-xs border-transparent focus:border-transparent focus:ring-0 focus:outline-none"
             autoFocus={true}
             ref={codeInputRef} // Menyambungkan ref dengan input  
           />

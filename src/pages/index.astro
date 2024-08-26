@@ -1,46 +1,13 @@
 ---
-import Form from "@/components/Form.astro";
-import Clock from "@/components/Clock.astro";
+import Attendence from "@/components/Attendence.jsx";
 ---
 
 <html>
   <head>
     <title>Absensi</title>
-    <script>
-      function refreshAtSpecificTimes() {
-        const refreshTimes = [
-          "08:00",
-          "09:00",
-          "10:00",
-          "14:30",
-          "15:15",
-          "00:00",
-        ];
-        const now = new Date();
-        const nowTime = now.toTimeString().slice(0, 5);
-        if (refreshTimes.includes(nowTime)) {
-          window.location.reload();
-        }
-      }
-      setInterval(refreshAtSpecificTimes, 60000);
-    </script>
   </head>
-  <body class="">
-    <div class="container-fluid">
-      <div class="background">
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-      </div>
-      <header>
-        <section class="header-content">
-          <Clock />
-          <div class="mt-16"></div>
-          <Form />
-        </section>
-      </header>
-    </div>
+  <body class="container-fluid">
+    <div class="mt-8"></div>
+    <Attendence client:load />
   </body>
 </html>

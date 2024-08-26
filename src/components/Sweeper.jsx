@@ -1,13 +1,32 @@
+import { useEffect, useState } from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import '../styles/sweeper.css';
-import { Autoplay} from 'swiper/modules';
-const logourl = import.meta.env.PUBLIC_LOGO_URL;  
+import { Autoplay } from 'swiper/modules';
 
-export default function App() {
+const ApiDataDisplay = () => {
+  const [data, setData] = useState([]);
+  const apiUrl = import.meta.env.PUBLIC_API_URL + "/api/data";
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(apiUrl);
+        const result = await response.json();
+        if (result.success) {
+          setData(result.data);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, [apiUrl]);
+
   return (
-    <>
+    <div className="flex flex-col pt-8">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -18,20 +37,35 @@ export default function App() {
         loop={true}
 
         modules={[Autoplay]}
-        className="mySwiper"
+        className="swiper"
       >
         <SwiperSlide>
-          <img src={logourl} className="animate-flip-up animate-delay-300 animate-once"/>
+        {data.map(item => (
+        <div key={item.id} >
+          <img src={item.image} className="animate-flip-up animate-delay-300 animate-once" />
+          </div>
+      ))}
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/tap.png" className="animate-pulse"/>
+          <img src="/images/tap.png" className="animate-pulse" />
         </SwiperSlide>
         <SwiperSlide>
-        <img src="/images/signal1.gif" className="animate-pulse"/>
+          <img src="/images/signal1.gif" className="animate-pulse" />
         </SwiperSlide>
-
       </Swiper>
-    </>
+
+      {data.map(item => (
+        <div key={item.id} className="pt-8 items-center justify-center flex-auto flex flex-col">
+          <div className="items-center justify-center flex-auto flex flex-col">
+            <span className="text-3xl neonText font-extrabold text-white">{item.name}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+
   );
-  
-}
+};
+
+export default ApiDataDisplay;
+
