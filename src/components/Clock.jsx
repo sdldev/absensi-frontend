@@ -32,9 +32,9 @@ const DigitalClock = () => {
   }, []);  
 
   return (  
-    <div className="items-center justify-center flex-auto flex flex-col">  
-      <span className="text-6xl neonText font-extrabold text-white">{time}</span>  
-      <span className="pt-3 text-4xl neonText font-bold text-white">{date}</span>  
+    <div className="py-4 items-center justify-center flex-auto flex flex-col bg-yellow-500">  
+      <span className="pt-3 text-6xl neonblue font-extrabold text-white">{time}</span>  
+      <span className="pt-3 text-4xl neonblue font-bold text-white">{date}</span>  
     </div>  
   );  
 };  

@@ -56,32 +56,37 @@ const Form = () => {
     <div>
       {error && <div style={{ color: 'red' }}>{error}</div>} {/* Tampilkan kesalahan jika ada */}
       {responseData && responseData.success ? (
-        <div className="py-3 flex items-center justify-center flex-auto flex-col">
-          <div className="relative flex w-full max-w-[48rem] flex-row rounded-xl text-gray-700 shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_#08f]">
-            <div className="relative m-0 w-2/6 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
-              <img
-                src={responseData.data.image}
-                alt="image"
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div className="p-6">
-              <h6 className="mb-4 block text-base font-semibold uppercase leading-relaxed tracking-normal text-sky-200 antialiased">
-                {responseData.data.code} - {responseData.data.nisn} - {responseData.data.kelas}
-              </h6>
-              <div className="mb-2 block text-lime-200 text-3xl font-semibold antialiased">
-                {responseData.data.name}
+        <div className="flex flex-auto flex-col">
+          <div className="justify-center items-center h-full">
+            <Clock client:load />
+          </div>
+          <div className="py-3 flex items-center justify-center flex-auto flex-col">
+            <div className="relative pt-3 flex w-full max-w-[48rem]">
+              <div className="relative m-0 w-2/6 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border">
+                <img
+                  src={responseData.data.image}
+                  alt="image"
+                  className="h-full w-full object-cover"
+                />
               </div>
-              <div className="flex text-base font-semibold flex-col md:flex-row items-center justify-between py-4">
-                <span className="flex py-4 text-blue-200">
-                  {responseData.data.timein}
-                </span>
-                <span className="py-3 mb-3 flex justify-end space-x-2 text-red-400 antialiased">
-                  {responseData.data.timeout}
-                </span>
-              </div>
-              <div className="items-center justify-center text-2xl flex-auto text-sky-200 flex flex-col">
-                {responseData.message.text}
+              <div className="p-6">
+                <h6 className="mb-4 block text-2xl  font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
+                  {responseData.data.code} - {responseData.data.nisn} - {responseData.data.kelas}
+                </h6>
+                <div className="mb-2 block neonred text-3xl text-white font-semibold antialiased">
+                  {responseData.data.name}
+                </div>
+                <div className="flex text-2xl font-semibold flex-col md:flex-row items-center justify-between py-4">
+                  <span className="flex py-4 text-black">
+                    {responseData.data.timein}
+                  </span>
+                  <span className="py-3 mb-3 text-xl font-semibold flex justify-end space-x-2 text-black antialiased">
+                    {responseData.data.timeout}
+                  </span>
+                </div>
+                <div className="items-center justify-center text-3xl flex-auto text-white neongrey flex flex-col">
+                  {responseData.message.text}
+                </div>
               </div>
             </div>
           </div>

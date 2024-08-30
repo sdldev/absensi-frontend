@@ -2,17 +2,36 @@ body {
   box-sizing: border-box;
 }
 
-.neonText{
+.neonblue{
   text-shadow:
-    0 0 5px #0995f3,
+    0 0 5px #14545f,
     0 0 10px #099df3,
-    0 0 15px #015599,
-    0 0 20px #03347e,
-    0 0 25px #02384e,
-    0 0 30px #001727
+    0 0 15px #6abbfd,
+    0 0 20px #96c0ff,
+    0 0 25px #4fcdff,
+    0 0 30px #ffffff
     ;
 }
-
+.neonred{
+  text-shadow:
+    0 0 5px #68001f,
+    0 0 10px #fa2c2c,
+    0 0 15px #fa3f3f,
+    0 0 20px #fc7c7c,
+    0 0 25px #fcc4c4,
+    0 0 30px #ffeef3
+    ;
+}
+.neongrey{
+  text-shadow:
+    0 0 5px #0b2e00,
+    0 0 10px #289108,
+    0 0 15px #69c44e,
+    0 0 20px #a3fc88,
+    0 0 25px #befdab,
+    0 0 30px #e5f8df
+    ;
+}
 .container-fluid{
   height: 100%;
   margin: 0;
