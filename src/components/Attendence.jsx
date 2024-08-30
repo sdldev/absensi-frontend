@@ -37,7 +37,7 @@ const Form = () => {
         codeInputRef.current.value = '';
         const timer = setTimeout(() => {
           window.location.href = '/';
-        }, 2300);
+        }, 1000);
 
         return () => clearTimeout(timer);
 
@@ -70,11 +70,17 @@ const Form = () => {
                 />
               </div>
               <div className="p-6">
-                <h6 className="mb-4 block text-2xl  font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
-                  {responseData.data.code} - {responseData.data.nisn} - {responseData.data.kelas}
-                </h6>
                 <div className="mb-2 block neonred text-3xl text-white font-semibold antialiased">
                   {responseData.data.name}
+                </div>
+                <div className="mb-4 block text-2xl  font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
+                  {responseData.data.code}
+                </div>
+                <div className="mb-4 block text-2xl  font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
+                  {responseData.data.nisn}
+                </div>
+                <div className="mb-4 block text-2xl  font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
+                  {responseData.data.kelas}
                 </div>
                 <div className="flex text-2xl font-semibold flex-col md:flex-row items-center justify-between py-4">
                   <span className="flex py-4 text-black">
@@ -84,8 +90,8 @@ const Form = () => {
                     {responseData.data.timeout}
                   </span>
                 </div>
-                <div className="items-center justify-center text-3xl flex-auto text-white neongrey flex flex-col">
-                  {responseData.message.text}
+                <div className="text-3xl flex-auto text-white neongrey flex flex-col">
+                  {responseData.message}
                 </div>
               </div>
             </div>
