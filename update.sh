@@ -2,6 +2,6 @@
 
 git reset --hard
 git pull
-rm -r build
+rm -r dist
 npm i
 npm run build
