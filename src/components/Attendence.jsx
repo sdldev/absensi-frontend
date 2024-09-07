@@ -8,12 +8,13 @@ import Clock from "@/components/Clock";
 const Form = () => {
   const [responseData, setResponseData] = useState(null);
   const [error, setError] = useState(null);
+  const [inputValue, setInputValue] = useState("");
   const codeInputRef = useRef();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData(event.target);
     const data = {
-      code: formData.get('code'),
+      code: inputValue,
     };
 
     console.log('Mengirim data:', data);
@@ -34,7 +35,8 @@ const Form = () => {
         setResponseData(responseJson);
         setError(null);
 
-        codeInputRef.current.value = '';
+        setInputValue('');
+
         const timer = setTimeout(() => {
           window.location.href = '/';
         }, 1000);
@@ -54,10 +56,10 @@ const Form = () => {
 
   return (
     <div>
-      {error && <div style={{ color: 'red' }}>{error}</div>} 
+      {error && <div style={{ color: 'red' }}>{error}</div>}
       {responseData && responseData.success ? (
-        <div className="flex flex-auto flex-col">
-          <div className="justify-center items-center h-full">
+        <div className="flex flex-auto flex-col h-screen">
+          <div className="justify-center items-center">
             <Clock client:load />
           </div>
           <div className="py-3 flex items-center justify-center flex-auto flex-col">
@@ -73,13 +75,13 @@ const Form = () => {
                 <div className="mb-2 block neonred text-3xl text-white font-semibold antialiased">
                   {responseData.data.name}
                 </div>
-                <div className="mb-3 block text-xl  font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
+                <div className="mb-3 block text-xl font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
                   {responseData.data.code}
                 </div>
-                <div className="mb-3 block text-xl  font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
+                <div className="mb-3 block text-xl font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
                   {responseData.data.nisn}
                 </div>
-                <div className="mb-3 block text-xl  font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
+                <div className="mb-3 block text-xl font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
                   {responseData.data.kelas}
                 </div>
                 <div className="flex font-semibold flex-col md:flex-row items-center justify-between">
@@ -98,23 +100,23 @@ const Form = () => {
           </div>
         </div>
       ) : (
-        <div className="justify-center items-center h-full">
+        <div className="justify-center items-center">
           <Clock client:load />
           <div className="mt-3"></div>
           <Sweeper client:load />
-
         </div>
       )}
 
-      <div className="py-3 items-center justify-center flex-auto flex bg-transparent">
+      <div className="justify-center items-center py-3 flex-auto flex bg-transparent">
         <form onSubmit={handleSubmit}>
           <input
             type="text"
             id="code"
             name="code"
-            className="sm:text-xs border-transparent focus:border-transparent focus:ring-0 focus:outline-none"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            className="sm:text-xs text-gray-200 border-transparent focus:border-transparent focus:ring-0 focus:outline-none"
             autoFocus={true}
-            ref={codeInputRef} // Menyambungkan ref dengan input  
           />
         </form>
       </div>
