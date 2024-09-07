@@ -62,35 +62,35 @@ const Form = () => {
           </div>
           <div className="py-3 flex items-center justify-center flex-auto flex-col">
             <div className="relative pt-3 flex w-full max-w-[48rem]">
-              <div className="relative m-0 w-2/6 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border">
+              <div className="px-3 relative m-0 w-2/6 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border">
                 <img
                   src={responseData.data.image}
                   alt="image"
-                  className="h-full w-full object-cover"
+                  className="h-auto w-full object-cover"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-3">
                 <div className="mb-2 block neonred text-3xl text-white font-semibold antialiased">
                   {responseData.data.name}
                 </div>
-                <div className="mb-4 block text-2xl  font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
+                <div className="mb-3 block text-xl  font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
                   {responseData.data.code}
                 </div>
-                <div className="mb-4 block text-2xl  font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
+                <div className="mb-3 block text-xl  font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
                   {responseData.data.nisn}
                 </div>
-                <div className="mb-4 block text-2xl  font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
+                <div className="mb-3 block text-xl  font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
                   {responseData.data.kelas}
                 </div>
-                <div className="flex text-2xl font-semibold flex-col md:flex-row items-center justify-between py-4">
-                  <span className="flex py-4 text-black">
+                <div className="flex font-semibold flex-col md:flex-row items-center justify-between">
+                  <span className="flex text-black">
                     {responseData.data.timein}
                   </span>
-                  <span className="py-3 mb-3 text-xl font-semibold flex justify-end space-x-2 text-black antialiased">
+                  <span className="l font-semibold flex justify-end space-x-1 text-black antialiased">
                     {responseData.data.timeout}
                   </span>
                 </div>
-                <div className="text-3xl flex-auto text-white neongrey flex flex-col">
+                <div className="pt-3 text-3xl flex-auto text-white neongrey flex flex-col">
                   {responseData.message}
                 </div>
               </div>
