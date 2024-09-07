@@ -47,6 +47,9 @@ const ApiDataDisplay = () => {
       ))}
         </SwiperSlide>
         <SwiperSlide>
+          <img src="/images/logopontren.png" className="animate-pulse" />
+        </SwiperSlide>
+        <SwiperSlide>
           <img src="/images/tap.png" className="animate-pulse" />
         </SwiperSlide>
         <SwiperSlide>
