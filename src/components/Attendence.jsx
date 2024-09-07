@@ -86,7 +86,7 @@ const Form = () => {
                   <span className="flex text-black">
                     {responseData.data.timein}
                   </span>
-                  <span className="l font-semibold flex justify-end space-x-1 text-black antialiased">
+                  <span className="font-semibold flex justify-end space-x-1 text-black antialiased">
                     {responseData.data.timeout}
                   </span>
                 </div>
@@ -100,7 +100,7 @@ const Form = () => {
       ) : (
         <div className="justify-center items-center h-full">
           <Clock client:load />
-          <div className="mt-6"></div>
+          <div className="mt-3"></div>
           <Sweeper client:load />
 
         </div>
