@@ -26,7 +26,7 @@ const ApiDataDisplay = () => {
   }, [apiUrl]);
 
   return (
-    <div className="flex flex-col py-3">
+    <div className="items-center justify-center flex-auto flex flex-col">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

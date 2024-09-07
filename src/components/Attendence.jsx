@@ -100,7 +100,7 @@ const Form = () => {
       ) : (
         <div className="justify-center items-center h-full">
           <Clock client:load />
-          <div className="mt-16"></div>
+          <div className="mt-6"></div>
           <Sweeper client:load />
 
         </div>
