@@ -55,7 +55,7 @@ const ApiDataDisplay = () => {
       </Swiper>
 
       {data.map(item => (
-        <div key={item.id} className="pt-8 items-center justify-center flex-auto flex flex-col">
+        <div key={item.id} className="pt-6 items-center justify-center flex-auto flex flex-col">
           <div className="items-center justify-center flex-auto flex flex-col">
             <span className="text-3xl neonblue font-extrabold text-white">{item.name}</span>
           </div>
