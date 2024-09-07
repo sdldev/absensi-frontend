@@ -52,6 +52,9 @@ const ApiDataDisplay = () => {
         <SwiperSlide>
           <img src="/images/signal1.gif" className="animate-pulse" />
         </SwiperSlide>
+        <SwiperSlide>
+          <img src="/images/build.webp" className="animate-pulse" />
+        </SwiperSlide>
       </Swiper>
 
       {data.map(item => (

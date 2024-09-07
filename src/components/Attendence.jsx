@@ -54,7 +54,7 @@ const Form = () => {
 
   return (
     <div>
-      {error && <div style={{ color: 'red' }}>{error}</div>} {/* Tampilkan kesalahan jika ada */}
+      {error && <div style={{ color: 'red' }}>{error}</div>} 
       {responseData && responseData.success ? (
         <div className="flex flex-auto flex-col">
           <div className="justify-center items-center h-full">
