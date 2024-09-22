@@ -47,6 +47,12 @@ const Form = () => {
         const errorText = await response.text();
         console.error('Terjadi kesalahan:', response.statusText, errorText);
         setError(`Terjadi kesalahan: ${response.statusText}`);
+
+        const timer = setTimeout(() => {
+          window.location.href = '/';
+        }, 1000);
+
+        return () => clearTimeout(timer);
       }
     } catch (error) {
       console.error('Error saat mengirim data:', error);
@@ -56,56 +62,80 @@ const Form = () => {
 
   return (
     <div>
-      {error && <div style={{ color: 'red' }}>{error}</div>}
-      {responseData && responseData.success ? (
+      {error && (
         <div className="flex flex-auto flex-col h-full">
           <div className="justify-center items-center">
             <Clock client:load />
           </div>
-          <div className="py-3 flex items-center justify-center flex-auto flex-col">
-            <div className="relative pt-3 flex w-full max-w-[48rem]">
-              <div className="px-3 relative m-0 w-2/6 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border">
-                <img
-                  src={responseData.data.image}
-                  alt="image"
-                  className="h-auto w-full object-cover"
-                />
-              </div>
-              <div className="p-3">
-                <div className="mb-2 block neonred text-3xl text-white font-semibold antialiased">
-                  {responseData.data.name}
+          <div className="py-3 flex items-center justify-center flex-auto flex-col pb-96">
+            <div className="p-4 mb-4 text-xl text-red-700" role="alert">
+              {error}
+            </div>
+            <div className="relative pt-3 flex max-w-[48rem]">
+              <img
+                src='/images/error.webp'
+                alt="image"
+                className="h-auto w-auto object-cover"
+                width="240"
+                height="240"
+              />
+
+            </div>
+          </div>
+        </div>
+      )
+      }
+      {
+        responseData && responseData.success ? (
+          <div className="flex flex-auto flex-col h-full">
+            <div className="justify-center items-center">
+              <Clock client:load />
+            </div>
+            <div className="py-3 flex items-center justify-center flex-auto flex-col">
+              <div className="relative pt-3 flex w-full max-w-[48rem]">
+                <div className="px-3 relative m-0 w-2/6 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border">
+                  <img
+                    src={responseData.data.image}
+                    alt="image"
+                    className="h-auto w-full object-cover"
+                  />
                 </div>
-                <div className="mb-3 block text-xl font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
-                  {responseData.data.code}
-                </div>
-                <div className="mb-3 block text-xl font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
-                  {responseData.data.nisn}
-                </div>
-                <div className="mb-3 block text-xl font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
-                  {responseData.data.kelas}
-                </div>
-                <div className="flex font-semibold flex-col md:flex-row items-center justify-between">
-                  <span className="flex text-black">
-                    {responseData.data.timein}
-                  </span>
-                  <span className="font-semibold flex justify-end space-x-1 text-black antialiased">
-                    {responseData.data.timeout}
-                  </span>
-                </div>
-                <div className="pt-3 text-3xl flex-auto text-white neongrey flex flex-col">
-                  {responseData.message}
+                <div className="p-3">
+                  <div className="mb-2 block neonred text-3xl text-white font-semibold antialiased">
+                    {responseData.data.name}
+                  </div>
+                  <div className="mb-3 block text-xl font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
+                    {responseData.data.code}
+                  </div>
+                  <div className="mb-3 block text-xl font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
+                    {responseData.data.nisn}
+                  </div>
+                  <div className="mb-3 block text-xl font-semibold uppercase leading-relaxed tracking-normal text-black antialiased">
+                    {responseData.data.kelas}
+                  </div>
+                  <div className="flex font-semibold flex-col md:flex-row items-center justify-between">
+                    <span className="flex text-black">
+                      {responseData.data.timein}
+                    </span>
+                    <span className="font-semibold flex justify-end space-x-1 text-black antialiased">
+                      {responseData.data.timeout}
+                    </span>
+                  </div>
+                  <div className="pt-3 text-3xl flex-auto text-white neongrey flex flex-col">
+                    {responseData.message}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      ) : (
-        <div className="justify-center items-center">
-          <Clock client:load />
-          <div className="mt-3"></div>
-          <Sweeper client:load />
-        </div>
-      )}
+        ) : (
+          <div className="justify-center items-center">
+            <Clock client:load />
+            <div className="mt-3"></div>
+            <Sweeper client:load />
+          </div>
+        )
+      }
 
       <div className="justify-center items-center py-3 flex-auto flex bg-transparent">
         <form onSubmit={handleSubmit}>
@@ -120,7 +150,7 @@ const Form = () => {
           />
         </form>
       </div>
-    </div>
+    </div >
   );
 };
 
