@@ -82,7 +82,7 @@ const StudentImage = () => {
                 setUploadSuccess(true);
                 setShowPopup(true);
                 setTimeout(() => {
-                    window.location.href = '/student-image';
+                    window.location.href = '/upload-image';
                 }, 4000);
 
             } else {
