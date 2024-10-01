@@ -1,12 +1,19 @@
 ---
 import Student from "@/components/StudentImage.jsx";
+import MainLayout from "@/layouts/Main.astro";
+import Container from "@/components/Container.astro";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
 ---
 
-<html>
-  <head>
-    <title>Absensi</title>
-  </head>
-  <body class="container-fluid">
-    <Student client:load />
-  </body>
-</html>
+<MainLayout title="Upload Foto">
+  <Container>
+
+  <Student client:load />
+</Container>
+
+</MainLayout>
