@@ -9,7 +9,7 @@ const StudentImage = () => {
     const [loading, setLoading] = useState(false);
     const [uploadSuccess, setUploadSuccess] = useState(false);
     const [formVisible, setFormVisible] = useState(true);
-    const [showPopup, setShowPopup] = useState(false); // State untuk popup  
+    const [showPopup, setShowPopup] = useState(false);
 
     const url = import.meta.env.PUBLIC_API_URL + "/api/students";
 
@@ -38,7 +38,7 @@ const StudentImage = () => {
             if (result.success) {
                 setData(result.data);
                 if (selectedImage) {
-                    await handleImageUpload(result.data.id, result.data.name); // Panggil untuk upload gambar di sini  
+                    await handleImageUpload(result.data.id, result.data.name);
                 }
             } else {
                 setError("Maaf, kode tidak dikenali");
@@ -55,14 +55,11 @@ const StudentImage = () => {
             setUploadError("Silakan pilih gambar sebelum mengunggah.");
             return;
         }
-
-        // Membuat format nama file baru  
-        const timestamp = new Date().getTime(); // Mendapatkan timestamp  
-        const fileExtension = selectedImage.name.split('.').pop(); // Mendapatkan ekstensi file  
-        const newFileName = `${studentName}-${nisn}-${timestamp}.${fileExtension}`; // Format filename  
+        const timestamp = new Date().getTime();
+        const fileExtension = selectedImage.name.split('.').pop();
+        const newFileName = `${studentName}-${nisn}-${timestamp}.${fileExtension}`;
 
         const formData = new FormData();
-        // Menyimpan image dengan nama baru  
         formData.append("image", new File([selectedImage], newFileName, { type: selectedImage.type }));
 
         setLoading(true);
@@ -76,9 +73,6 @@ const StudentImage = () => {
             });
             const result = await response.json();
             if (result.success) {
-                // setUploadSuccess(true);  
-                // alert("Gambar berhasil diunggah!");  
-
                 setUploadSuccess(true);
                 setShowPopup(true);
                 setTimeout(() => {
@@ -191,7 +185,6 @@ const StudentImage = () => {
                         {uploadError && <div className="text-red-500">{uploadError}</div>}
                         {loading && <div className="text-blue-500">Mengunggah gambar, harap tunggu...</div>}
 
-                        {/* Popup Notifikasi Sukses */}
                         {showPopup && (
                             <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center h-screen bg-black bg-opacity-50">
                                 <div className="bg-white p-5 rounded-lg shadow-lg">
