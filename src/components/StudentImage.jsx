@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';  
+import React, { useState, useEffect } from 'react';
 
 const StudentImage = () => {
     const [nisn, setNisn] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
     const [data, setData] = useState(null);
     const [error, setError] = useState("");
     const [selectedImage, setSelectedImage] = useState(null);
@@ -15,6 +16,10 @@ const StudentImage = () => {
 
     const handleInputChange = (e) => {
         setNisn(e.target.value);
+    };
+
+    const handlePhoneNumberChange = (e) => {
+        setPhoneNumber(e.target.value);
     };
 
     const handleImageChange = (e) => {
@@ -102,6 +107,28 @@ const StudentImage = () => {
             {formVisible && (
                 <form onSubmit={handleSubmit} className="mb-4">
                     <h1 className="py-6 mx-auto items-center text-center text-2xl font-bold mb-4">Update Photo Siswa</h1>
+                    <div className="rounded-xl">
+                        <img
+                            src={'/images/contoh.webp'}
+                            alt="Foto Siswa"
+                            loading="lazy"
+                            decoding="async"
+                            className="mx-auto mt-3 rounded-xl"
+                            width="full"
+                        />
+                    </div>
+
+                    <div className="text-2xl font-bold tracking-tight sm:mt-3 sm:text-3xl lg:mt-3 xl:text-3xl">CATATAN:</div>
+                    <ul className='py-6'>
+                        <li>- Foto akan di gunakan untuk Kartu Siswa</li>
+                        <li>- Ukuran Pas Foto 3x4 (skala perbandingan)</li>
+                        <li>- Format File JPEG, JPG, PNG</li>
+                        <li>- Besar file max 1Mb</li>
+                        <li>- Jika gagal upload, pastikan format file dan ukuran sesuai dengan ketentuan</li>
+                        <li className='text-red-800'>- Harap upload tepat waktu, karena jika ada yg terlambat akan menganggu proses pembuatan kartu siswa lainnya</li>
+
+                    </ul>
+
                     <input
                         type="text"
                         value={nisn}
@@ -158,10 +185,22 @@ const StudentImage = () => {
 
                         <div className="my-4">
                             <input
+                                type="text"
+                                name="phone"
+                                value={phoneNumber}
+                                onChange={handlePhoneNumberChange}
+                                placeholder="Masukkan Nomor Telepon"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full ps-3 p-2.5"
+                                required
+                            />
+
+                            <input
                                 type="file"
                                 onChange={handleImageChange}
                                 className="border border-gray-300 rounded-lg p-2"
                                 accept="image/*"
+                                required
+
                             />
                         </div>
                         {selectedImage && (
