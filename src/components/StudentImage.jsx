@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 const StudentImage = () => {
     const [nisn, setNisn] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
     const [data, setData] = useState(null);
     const [error, setError] = useState("");
     const [selectedImage, setSelectedImage] = useState(null);
@@ -18,9 +17,7 @@ const StudentImage = () => {
         setNisn(e.target.value);
     };
 
-    const handlePhoneNumberChange = (e) => {
-        setPhoneNumber(e.target.value);
-    };
+
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -184,16 +181,6 @@ const StudentImage = () => {
                         </div>
 
                         <div className="my-4">
-                            <input
-                                type="text"
-                                name="phone"
-                                value={phoneNumber}
-                                onChange={handlePhoneNumberChange}
-                                placeholder="Masukkan Nomor Telepon"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full ps-3 p-2.5"
-                                required
-                            />
-
                             <input
                                 type="file"
                                 onChange={handleImageChange}
