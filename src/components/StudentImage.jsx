@@ -109,7 +109,7 @@ const StudentImage = () => {
                     <h1 className="py-6 mx-auto items-center text-center text-2xl font-bold mb-4">Update Photo Siswa</h1>
                     <div className="rounded-xl">
                         <img
-                            src={'/images/contoh.webp'}
+                            src={'/images/sample.webp'}
                             alt="Foto Siswa"
                             loading="lazy"
                             decoding="async"
